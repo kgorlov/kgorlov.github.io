@@ -7,6 +7,14 @@
 	    
 	    
       <meta charset="utf-8">
+	    
+	    	    <!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?146"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 6051461, onlyWidgets: true});
+</script>
+	    
   
       <!-- Put this script tag to the <head> of your page -->
       <script type="text/javascript" src="//vk.com/js/api/openapi.js?146"></script>
@@ -14,10 +22,12 @@
       <script type="text/javascript">
         VK.init({apiId: 6051461, onlyWidgets: true});
       </script>
+	    
+	
 
 
-	    
-	    
+
+
 		<style>
 		  body {
 		    font: 0.92em/1.4 Verdana, Arial, sans-serif;
@@ -74,7 +84,7 @@
 	    <div class="header">
    	      <h1 class="main">Выпускной 4a</h1>
 	
-	      <p>23.04.2017<br>Гатчинский дворец</p>
+		    <p>23.04.2017<br>Гатчинский дворец</p>
         
               <!-- Put this div tag to the place, where the Like block will be -->
               <div id="vk_like"></div>
@@ -97,6 +107,14 @@
       <img src="DSC09939_1980.jpg"  alt="мост">
 	    
 		<button onclick="alert('Секрет!')">Нажми меня..</button>
+		  
+		<!-- Put this div tag to the place, where the Comments block will be -->
+<div id="vk_comments"></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+</script>
+	      
+		  
 	  </div>
 	</body>
 </html>
