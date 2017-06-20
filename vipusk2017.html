@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <title>Выпускной 2017 4а</title>
+    <meta charset="utf-8">
+    <!-- Put this script tag to the <head> of your page -->
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?146"></script>
+    <script type="text/javascript">
+      VK.init({apiId: 6051461, onlyWidgets: true});
+    </script>
+    <style>
+      body {
+        font: 0.92em/1.4 Verdana, Arial, sans-serif;
+      }
+      .content {
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      img {
+        width: 100%;
+      }
+      .header h1 {
+        font-size: 60pt;
+        font-face: Arial, Verdana;
+      }
+      .header {
+        border-bottom: 1px solid grey;
+      }
+      .header p {
+        font-size: 14pt;
+      }
+      .header {
+        text-align: center;
+        padding-bottom: 50px;
+      }
+      h2.label {
+        text-align: center;
+        color: green;
+        font-size: 140%;
+        font-weight: bold;
+        margin-bottom: 6px;
+        margin-top: 24px;
+      }
+    </style>
+    <script>
+      //alert("Hello!");
+    </script>
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+        <h1 class="main">Выпускной 4a</h1>
+        <p>23.04.2017<br>Гатчинский дворец</p>
+        <!-- VK Like -->
+        <div id="vk_like"></div>
+        <script type="text/javascript">
+          VK.Widgets.Like("vk_like", {type: "button"});
+        </script>
+      </div>
+      <h2 class="label">Летим.</h2>
+      <img src="DSC00115_1980.jpg"  alt="Прыжок"> 
+      <h2 class="label">Скоро он улетит!</h2>
+      <img src="DSC00047_1980.jpg"  alt="Шар" title="Это подпись к фотографии, он еще не улетел." >
+      <h2 class="label">Фунтик с крокодилом.</h2>
+      <img src="DSC00014_1980.jpg"  alt="Крокодил">
+      <h2 class="label">Я на мосту.</h2>
+      <img src="DSC09939_1980.jpg"  alt="мост">
+      <h2 class="label">Наш стол.</h2>
+      <img src="DSC00032_1980.jpg"  alt="стол">
+      <h2 class="label">Бой шариками.</h2>
+      <img src="DSC00091_1980.jpg"  alt="бой">
+      <h2 class="label">Бедный шарик.</h2>
+      <img src="DSC00102.jpg"  alt="шарик 2">
+      <button onclick="alert('Секрет!')">Нажми меня..</button>
+      
+      <!-- VK Comments -->
+      <div id="vk_comments"></div>
+      <script type="text/javascript">
+        VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+      </script>
+    </div>
+  </body>
+</html>
