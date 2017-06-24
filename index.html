@@ -67,7 +67,7 @@
       var videvo = document.getElementById('videvo');
       var video_count = 0;
       function run() {
-	console.log('run: video_count=', video_count);
+	      console.log('run: video_count=', video_count);
         video_count++;
         if (video_count == 3) { 
           video_count = 0;
@@ -79,6 +79,7 @@
         videovo.setAttribute("src", vs[video_count] + "." + ext);
         videovo.play();        
       }
+    </script>
 
     
   </head>
