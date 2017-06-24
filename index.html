@@ -54,15 +54,39 @@
       }
       
     </style>
+    
+    <script>
+      
+      var vs = [
+        'table',
+        'kirill',
+        'white',
+        'thumbsup'
+      ];
+      
+      var videvo = document.getElementById('videvo');
+      var video_count = 0;
+      function run() {
+        video_count++;
+        if (video_count == 3) { 
+          video_count = 0;
+        }
+        
+        var videoPlaying = videvo.currentSrc;
+        var ext = videoPlaying.substr(videoPlaying.lastIndexOf("."));        
+        
+        videovo.setAttribute("src", vs[video_count] + "." + ext);
+        videovo.play();        
+      }
 
+    
   </head>
   <body>
     
     <div id="bg-videvo">
-      <video id="videvo" autoplay loop>
-       <source src="thumbsup.webm" type="video/webm"><!-- ; codecs=vp9,vorbis -->
-       <source src="thumbsup.mp4" type="video/mp4">
-        
+      <video id="videvo" autoplay preload onended="run();">      
+        <source src="table.webm" type="video/webm"><!-- ; codecs=vp9,vorbis -->
+        <source src="table.mp4" type="video/mp4">        
       </video>
     </div>
     
