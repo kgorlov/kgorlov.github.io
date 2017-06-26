@@ -46,7 +46,7 @@
  
       /* Если есть поддержка object-fit (Chrome/Chrome для Android, Safari в iOS 8 и Opera), используем его: */
       @supports (object-fit: cover) {
-        #videovo {
+        #videvo {
           top: 0; left: 0;
           width: 100%; height: 100%;
           object-fit: cover;
@@ -77,8 +77,8 @@
           var videoPlaying = videvo.currentSrc;
           var ext = videoPlaying.substr(videoPlaying.lastIndexOf("."));        
         
-          videovo.setAttribute("src", vs[video_count] + "." + ext);
-          videovo.play();        
+          videvo.setAttribute("src", vs[video_count] + "." + ext);
+          videvo.play();        
         }
     </script>
 
