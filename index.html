@@ -56,7 +56,7 @@
     </style>
     
     <script>
-      window.onload = function() {
+      
         var vs = [
           'table',
           'kirill',
@@ -64,9 +64,10 @@
           'thumbsup'
         ];
       
-        var videvo = document.getElementById('videvo');
+
         var video_count = 0;
         function run() {
+          var videvo = document.getElementById('videvo');
 	        console.log('run: video_count=', video_count);
           video_count++;
           if (video_count == 3) { 
@@ -79,7 +80,6 @@
           videovo.setAttribute("src", vs[video_count] + "." + ext);
           videovo.play();        
         }
-      }
     </script>
 
     
