@@ -56,28 +56,29 @@
     </style>
     
     <script>
+      window.onload = function() {
+        var vs = [
+          'table',
+          'kirill',
+          'white',
+          'thumbsup'
+        ];
       
-      var vs = [
-        'table',
-        'kirill',
-        'white',
-        'thumbsup'
-      ];
-      
-      var videvo = document.getElementById('videvo');
-      var video_count = 0;
-      function run() {
-	      console.log('run: video_count=', video_count);
-        video_count++;
-        if (video_count == 3) { 
-          video_count = 0;
+        var videvo = document.getElementById('videvo');
+        var video_count = 0;
+        function run() {
+	        console.log('run: video_count=', video_count);
+          video_count++;
+          if (video_count == 3) { 
+            video_count = 0;
+          }
+        
+          var videoPlaying = videvo.currentSrc;
+          var ext = videoPlaying.substr(videoPlaying.lastIndexOf("."));        
+        
+          videovo.setAttribute("src", vs[video_count] + "." + ext);
+          videovo.play();        
         }
-        
-        var videoPlaying = videvo.currentSrc;
-        var ext = videoPlaying.substr(videoPlaying.lastIndexOf("."));        
-        
-        videovo.setAttribute("src", vs[video_count] + "." + ext);
-        videovo.play();        
       }
     </script>
 
