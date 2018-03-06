@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
+
     <title>Точка</title>
+
     <meta charset="utf-8">
     <script>
             
     </script>      
   </head>
   <body>
-        <canvas id="myCanvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
-        <script>   
-	      var canva = document.getElementById("myCanvas");
-		  var ctx = canva.getContext('2d');
-          
+        <canvas id="myCanvas" width="1920" height="1080" style="border:1px solid #000000;"></canvas> 2d');
+
+<script>
+
+
           // черный фон
           ctx.fillRect(0, 0, canva.width, canva.height);
 
@@ -24,7 +26,8 @@
           ctx.fillStyle = "#eee";
           ctx.fillRect(110, 100, 1, 1); 
 
-
+          var randomY = Math.flloor(Math.random() * canva.width);
+ 
         </script>
   </body>
 </html>
