@@ -30,10 +30,16 @@
     // точка серая маленькая
     // ctx.fillStyle = "#eee";
     // ctx.fillRect(110, 100, 1, 1); 
-    ctx.fillStyle = "#eee";
+    //             0          1           2          3
+    var colors = [ "#DCDCDC", "#F8F8FF",  "#E0FFFF", "#F0E68C", "#FF0000", "#00FFFF", "#DAA520"  ];
+    
+    
     var stars = 0;
     while (stars < 100) {
       stars++;
+      var randomcolor = Math.floor(Math.random() * colors.length);
+      ctx.fillStyle = colors[randomcolor];
+
       var randomX = Math.floor(Math.random() * canva.width);
       var randomY = Math.floor(Math.random() * canva.height);
       ctx.fillRect(randomX, randomY, 2, 2);
