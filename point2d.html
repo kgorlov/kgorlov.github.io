@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <canvas id="myCanvas" width="1000" height="700" style="border:1px solid #000000;"></canvas>);
+  <canvas id="myCanvas" width="1000" height="700" style="border:1px solid #000000;"></canvas>
 
   <script>
 
@@ -31,20 +31,22 @@
     // ctx.fillStyle = "#eee";
     // ctx.fillRect(110, 100, 1, 1); 
     //             0          1           2          3
-    var colors = [ "#DCDCDC", "#F8F8FF",  "#E0FFFF", "#F0E68C", "#FF0000", "#00FFFF", "#DAA520"  ];
+    var colors = ["#DCDCDC", "#F8F8FF", "#E0FFFF", "#F0E68C", "#FF0000", "#00FFFF", "#DAA520"];
     
-    
-    var stars = 0;
-    while (stars < 100) {
-      stars++;
+    var drawStar = function () {
       var randomcolor = Math.floor(Math.random() * colors.length);
       ctx.fillStyle = colors[randomcolor];
-
       var randomX = Math.floor(Math.random() * canva.width);
       var randomY = Math.floor(Math.random() * canva.height);
       ctx.fillRect(randomX, randomY, 2, 2);
     }
-    ctx.fillStyle = "#eee";
+    setInterval(drawStar, 10);
+
+    // var stars = 0;
+    // while (stars < 100) {
+    //   stars++;
+    //   drawStar();
+    // }
   </script>
 </body>
 
