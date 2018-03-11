@@ -8,70 +8,71 @@
   <meta charset="utf-8">
   <script>
 
-  </script>
+  </script> 
+  <style>
+  html, body {
+    width:  100%;
+    height: 100%;
+    margin: 0px;
+    overflow: hidden;
+  }
+  </style>
 </head>
-
 <body>
-  <canvas id="myCanvas" width="300" height="300" style="border:1px solid #000000;"></canvas>
+  <canvas  id="myCanvas"></canvas>
 
   <script>
 
     var canva = document.getElementById("myCanvas");
     var ctx = canva.getContext('2d');
-
-
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
     // черный фон
     ctx.fillRect(0, 0, canva.width, canva.height);
 
-    // точка белая
-    // ctx.fillStyle = "white";
-    // ctx.fillRect(100, 100, 2, 2); 
-
-    // точка серая маленькая
-    // ctx.fillStyle = "#eee";
-    // ctx.fillRect(110, 100, 1, 1); 
-    //             0          1           2          3
-    var colors = ["#DCDCDC", "#F8F8FF", "#E0FFFF", "#F0E68C", "#FF0000", "#00FFFF", "#DAA520"];
-
 
     var stars = [];
-    
-    var drawStar = function () {
+
+    /**
+     * Выбери цвет
+     */
+    var chooseColor = function() {
+      var colors = ["#DCDCDC", "#F8F8FF", "#E0FFFF", "#F0E68C", "#FF0000", "#00FFFF", "#DAA520"];
       var randomcolor = Math.floor(Math.random() * colors.length);
-      ctx.fillStyle = colors[randomcolor];
+      return colors[randomcolor];
+    };
+    
+    /**
+     * Нарисуй звезду
+     */
+    var drawStar = function () {
+      ctx.fillStyle = chooseColor();
 
       var randomX = Math.floor(Math.random() * canva.width);
       var randomY = Math.floor(Math.random() * canva.height);
+
       ctx.fillRect(randomX, randomY, 2, 2);
       stars.push([randomX, randomY]);
     };
-     
-      
-
+    
+    /**
+     * Удали звезду
+     *
+     * удаляет звезды, только если их количество 100 или больше
+     */
     var eraseStar = function() {
-      if (stars.length == 0) {
+      if (stars.length < 50) {
         return;
       }
 
       ctx.fillStyle = "black";
       var starNumber = Math.floor(Math.random() * stars.length);
-      // console.log("starNumber =", starNumber);
-      // console.log("x =", stars[starNumber][0]);
-      // console.log("y =", stars[starNumber][1]);
       var star = stars.shift();
-
       ctx.fillRect(star[0], star[1], 2, 2);
     };
 
-
-    var starsCounter = 0;
-    while (starsCounter < 100) {
-      starsCounter++;
-      drawStar();
-    } 
-
-    setInterval(eraseStar, 200);
-
+    setInterval(eraseStar, 500);
+    setInterval(drawStar, 500);
    </script>
 </body>
 
