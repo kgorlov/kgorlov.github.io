@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Прыгающий мяч</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+    <script>
+
+
+        
+
+        var Ball = function (x, y) {
+            this.x = x;
+            this.y = y;
+            this.xSpeed = 10;
+            this.ySpeed = 10;
+        };
+
+        var circle = function (x, y, radius, fillCircle) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+            if (fillCircle) {
+                ctx.fill();
+            } else {
+                ctx.stroke();
+            }
+        };
+        Ball.prototype.draw = function () {
+            circle(this.x, this.y, 5, true);
+        };
+
+        Ball.prototype.move = function () {
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;
+        };
+
+        Ball.prototype.randSpeed = function() {
+            return Math.floor(Math.random() * 10);
+        };
+        
+
+        Ball.prototype.checkCollision = function () {
+
+            if (this.x < 0) {
+                this.xSpeed = this.randSpeed();
+            }
+
+            if (this.x > 200) {
+                this.xSpeed = -this.randSpeed();
+            }
+
+            if (this.y < 0) {
+                this.ySpeed = this.randSpeed();
+            }
+
+            if (this.y > 200) {
+                this.ySpeed = -this.randSpeed();
+            }
+        };
+
+        var canva = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var ball1 = new Ball(10, 100);
+        var ball2 = new Ball(190, 100);
+        setInterval(function () {
+            ctx.clearRect(0, 0, 200, 200);
+            ball1.draw();
+            ball1.move();
+            ball1.checkCollision();
+            ball2.draw();
+            ball2.move();
+            ball2.checkCollision();
+            ctx.strokeRect(0, 0, 200, 200);
+        }, 30);
+
+
+    </script>
+</body>
+
+</html>
