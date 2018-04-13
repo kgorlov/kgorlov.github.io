@@ -33,7 +33,6 @@
         // черный фон
         ctx.fillRect(0, 0, canva.width, canva.height);
 
-        var stars = [];
 
 
         /**
@@ -62,6 +61,16 @@
         /////////////// /Star ////////////////
 
 
+        var eraseStar = function (stars) {
+            if (stars.length < 50) {
+                return stars;
+            }
+
+            stars.shift();
+
+            return stars;
+        };
+
 
 
         var stars = [];
@@ -76,14 +85,14 @@
             var randomY = Math.floor(Math.random() * canva.height);
             var star = new Star(randomX, randomY, chooseColor(), ctx);
             stars.push(star);
-            
 
-            // нарисовать все звезды из stars
-            // в цикле по stars отобразить звезды            
-            stars[0].draw();
+            stars = eraseStar(stars);
             
-        }, 1000);
+            for (var starCounted = 0; starCounted < stars.length; starCounted++) {
+                stars[starCounted].draw()
+            }
 
+        }, 10);
 
     </script>
 </body>
