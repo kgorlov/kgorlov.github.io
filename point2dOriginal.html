@@ -58,16 +58,27 @@
             this.ctx.fillRect(this.x, this.y, 2, 2);
         };
 
+        Star.prototype.draw2 = function () {
+            this.ctx.fillStyle = this.color;
+            this.ctx.fillRect(this.x - 3, this.y - 3, 5, 5);
+        };
+
+        Star.prototype.draw3 = function () {
+            this.ctx.fillStyle = this.color;
+            this.ctx.fillRect(this.x - 4, this.y - 4, 8, 8);
+        };
         /////////////// /Star ////////////////
 
 
         var eraseStar = function (stars) {
-            if (stars.length < 50) {
+            if (stars.length < 5) {
                 return stars;
             }
 
-            stars.shift();
+            var star = stars.shift();
+             star.draw2();
 
+             setTimeout(function () { star.draw3(); }, 1000)
             return stars;
         };
 
@@ -87,12 +98,12 @@
             stars.push(star);
 
             stars = eraseStar(stars);
-            
+
             for (var starCounted = 0; starCounted < stars.length; starCounted++) {
                 stars[starCounted].draw()
             }
 
-        }, 10);
+        }, 1000);
 
     </script>
 </body>
