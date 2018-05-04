@@ -12,7 +12,7 @@ var timer;
 window.onload = function () {
     canvas = document.getElementById("Canvas");
     context = canvas.getContext("2d");
-    drawMaze("maze1.png", 266, 5);
+    drawMaze("maze1.png", 267, 5);
 
     window.onkeydown = processKey;
 
@@ -25,7 +25,7 @@ function drawMaze(mazeFile, startinX, startinY) {
     dy = 0;
 
     var imgMaze = new Image();
-    // imgMaze.crossOrigin = "Anonymous";
+    
     imgMaze.onload = function () {
 
         canvas.width = imgMaze.width;
@@ -94,7 +94,7 @@ function redraw() {
     }
     if (y > 575) {
         alert("Ты победил");
-        y = 5;
+        dy = -3;
     }
     timer = setTimeout("redraw()", 10);
 }
