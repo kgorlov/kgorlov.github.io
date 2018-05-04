@@ -25,6 +25,7 @@ function drawMaze(mazeFile, startinX, startinY) {
     dy = 0;
 
     var imgMaze = new Image();
+    // imgMaze.crossOrigin = "Anonymous";
     imgMaze.onload = function () {
 
         canvas.width = imgMaze.width;
@@ -74,9 +75,35 @@ function redraw() {
         x += dx;
         y += dy;
 
+        if (checkCollision() ) {
+            x-= dy;
+            y-= dy;
+            dy = 0;
+            dx = 0;
+        }
+
         var imgFace = document.getElementById("face");
         context.drawImage(face, x, y);
 
     }
     timer = setTimeout("redraw()", 10);
+}
+
+function checkCollision() {
+    var imgData = context.getImageData(x-1, y-1, 15+2, 15+2);
+    var pixels = imgData.data;
+
+    for(var i = 0; n=pixels.length, i<n; i+=4) {
+        var red = pixels[i];
+        var green = pixels[i+1];
+        var blue = pixels[i+2];
+
+        if (red==0 && green==0 && blue==0) {
+            return true;
+        }
+        if (red==169 && green==169 && blue==169) {
+            return true;
+        }
+    } 
+    return false;
 }
