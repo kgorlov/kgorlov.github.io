@@ -12,7 +12,7 @@ var timer;
 window.onload = function () {
     canvas = document.getElementById("Canvas");
     context = canvas.getContext("2d");
-    drawMaze("maze1.png", 265, 5);
+    drawMaze("maze1.png", 266, 5);
 
     window.onkeydown = processKey;
 
