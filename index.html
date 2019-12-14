@@ -5,103 +5,25 @@
     <meta charset="utf-8">
  
     <style>      
-      body {
-        font: 0.92em/1.4 Verdana, Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        }
-      
-      .text {
-      } 
-      
-      #bg-videvo {
-        display: block; 
-        width: 100%; 
-        height: 100%; 
-        
-	      position: fixed;
-      	top: 0; right: 0; bottom: 0; left: 0;
-	      overflow: hidden;
-      }
-
-      #videvo {
-	      position: absolute;
-       	top: 0;
-      	left: 0;
-        width: 100%;
-        height: 100%;
-        /*min-width: 100%; 
-        width: auto;
-        height: auto; 
-        min-height: 100%;
-        */
-      }
-      
-       
-      @media (min-aspect-ratio: 16/9) {
-        #videvo { height: 300%; top: -100%; }
-      }
-      
-      @media (max-aspect-ratio: 16/9) {
-        #videvo { width: 300%; left: -100%; }
-      }
- 
-      /* Если есть поддержка object-fit (Chrome/Chrome для Android, Safari в iOS 8 и Opera), используем его: */
-      @supports (object-fit: cover) {
-        #videvo {
-          top: 0; left: 0;
-          width: 100%; height: 100%;
-          object-fit: cover;
-        }
-      }
-      
     </style>
-    
-    <script>
-      
-        var vs = [
-          'table',
-          'kirill',
-          'white',
-          'thumbsup'
-        ];
-      
-
-        var video_count = 0;
-        function run() {
-          var videvo = document.getElementById('videvo');
-	        console.log('run: video_count=', video_count);
-          video_count++;
-          if (video_count == 4) { 
-            video_count = 0;
-          }
-        
-          var videoPlaying = videvo.currentSrc;
-          var ext = videoPlaying.substr(videoPlaying.lastIndexOf("."));        
-        
-          videvo.setAttribute("src", vs[video_count] + ext);
-          videvo.play();        
-        }
-    </script>
-
-    
+       
   </head>
   <body>  
+
+    <script>
+	    var words = [
+"программа",
+"макака",
+"прекрасный",
+"оладушек"
+];
+var word = words[Math.floor(Math.random() * words.length)];
+var answerArray = [];
+for (var i = 0; i < word.length; i++) {
+answerArray[i] = "_";
+}
+var remainingLetters = word.length;
+    </script>	  
 	  
-<div style="width: 200px; height: 2000px; border: 1px solid black; background: green;"></div>
-  <div style="width: 600px; height: 200px; position: fixed; top: 100px; left: 100px; border: 1px solid black; background:red;"></div>
-	 
-  	<div class="text">
-     Привет меня зовут Кирилл
-     и это мой первый сайт!
-     ссылка на сайт https://kgorlov.github.io/   
-    </div>
-	  
-    <div id="bg-videvo">
-      <video id="videvo" autoplay preload onended="run();">      
-        <source src="table.webm" type="video/webm"><!-- ; codecs=vp9,vorbis -->
-        <source src="table.mp4" type="video/mp4">        
-      </video>
-    </div>
   </body>
 </html>
